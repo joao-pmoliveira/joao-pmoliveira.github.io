@@ -1,0 +1,33 @@
+---
+interface Props {
+    link: string,
+    icon: string,
+    name: string
+}
+
+const {link, icon, name} = Astro.props;
+---
+
+
+<li>
+    <a href={link}>
+        <i class={icon}></i>
+        {name}
+    </a>
+</li>
+
+
+<style>
+    li {
+        background-color: black;
+        padding: 0.3em 1em;
+        border-radius: 1em;
+        &:hover {
+            background-color: orange;
+        }
+    }
+    a {
+        text-decoration: none;
+        color: white;
+    }
+</style>
