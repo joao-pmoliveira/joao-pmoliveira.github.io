@@ -1,11 +1,26 @@
-<li>tech</li>
+---
+interface Props {
+    name: string,
+}
+const {name} = Astro.props;
+---
+
+<li>{name}</li>
 
 
 <style>
     li {
-        background-color: white;
-        color: black;
-        padding: 0.1em 1em;
+        background-color: var(--background);
+        border-color: var(--accent);
+        color: var(--accent);
+        padding: 0.2em 1em;
+        border: 1px solid;
         border-radius: 1em;
+        font-size: 0.9em;
+
+        &:hover {
+            color: var(--text);
+            border-color: var(--text);
+        }
     }
 </style>

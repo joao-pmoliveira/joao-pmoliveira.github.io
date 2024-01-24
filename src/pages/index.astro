@@ -1,50 +1,69 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Project from '../components/Project.astro';
+import TechCapsule from '../components/TechCapsule.astro';
 ---
 
 <Layout title="João Oliveira">
-    <header>
+
+    <!-- <header>
         <div>
             <p>João Oliveira</p>
         </div>
         <nav>
             <ul>
-                <li>Projetos</li>
-                <li>Contactar</li>
+                <li>
+                    <a href="#projects">Projetos</a>
+                </li>
+                <li>
+                    <a href="#contactos">Contactos</a>
+                </li>
             </ul>
         </nav>
-    </header>
-    
+    </header> -->
+
     <main>
-        <div id="hero" class="container">
-            <h1>Hey! I'm João Oliveira</h1>
-            <p>E este é o meu portefólio :)</p>
+        <div id="hero">
+            <div class="container">
+                <h1>João Oliveira</h1>
+                <p>Estudante 3ºAno - Licenciatura <strong>Tecnologias da Informação</strong> ESTGA-UA</p>
+                <div id="contact-list">
+                    <a href="https://www.linkedin.com/in/jo%C3%A3o-oliveira-304134226/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/joaoUA" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="container">
+            <h1>Projetos</h1>
+            <Project title='Suporte à Criação de Horários'
+                description='Web app para gestão de formulários de restrições dos docentes\
+                    para o próximo semestre letivo.'
+                >
+                <TechCapsule name="Laravel"></TechCapsule>
+                <TechCapsule name="Js"></TechCapsule>
+                <TechCapsule name="HTML/CSS"></TechCapsule>
+            </Project>
+
+            <Project title='Sistema de Gestão de Hótel'
+                description='Aplicação de suporte à gestão diária de hóteis (admins, rececionistas, restantes\
+                empregados)'
+                >
+                <TechCapsule name="Java"></TechCapsule>
+            </Project>
+
+            <Project title='Estádios Nacionais'
+                description='Web App que fornece caminho a percorrer desde o ponto de partida até ao estádio \
+                selecionado, destacando os pontos de interesse em redor ao estádio'
+                >
+                <TechCapsule name='OpenLayers'></TechCapsule>
+                <TechCapsule name='Valhalla API'></TechCapsule>
+                <TechCapsule name='OpenRouteService'></TechCapsule>
+                <TechCapsule name='Js'></TechCapsule>
+                <TechCapsule name='HTML/CSS'></TechCapsule>
+            </Project>
         </div>
     </main>
-
-    <section id="projects" class="container">
-        <div id="filters-container">
-            <label for="tech-checkbox">:)</label>
-            <select name="" id="">
-                <option value="">---</option>
-                <option value="1">Um</option>
-            </select>
-        </label>
-        </div>
-        <Project></Project>
-        <Project></Project>
-    </section>
-
-    <footer>
-        <h1>Contacte-me em:</h1>
-        <ul>
-            <li>email</li>
-            <li>linkedin</li>
-            <li>github</li>
-            <li>youtube</li>
-        </ul>
-    </footer>
 </Layout>
 
 
@@ -54,34 +73,84 @@ import Project from '../components/Project.astro';
         flex-direction: row;
         justify-content: space-between;
         padding: 0.5em 1em;
-        border: 1px red solid;
+
+        a {
+            text-decoration: none;
+            color: var(--accent);
+            &:hover {
+                color: var(--text);
+            }
+        }
     }
-    nav ul {
+    nav > ul {
         display: flex;
-        list-style: none;
         gap: 1em;
     }
-    .container > * {
+    
+    .container {
         margin: 0 auto;
-        width: 75%;
+        max-width: 75%;
+    }
+
+    main {
+        padding-bottom: 4em;
+    }
+
+    footer {
         border: 1px white solid;
     }
     
-
     #hero {
-        background-color: darkslateblue;
-        color: white;
-        border: aqua 1px solid;
         padding: 4em 0;
+        
+        h1 {
+            font-family: var(--serif-font);
+            letter-spacing: 1px;
+            font-size: 3em;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        strong {
+            color: var(--accent);
+        }
+
+        a {
+            background-color: var(--secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 0.2em;
+            text-decoration: none;
+            color: var(--text);
+            
+            &:hover {
+                background-color: var(--accent);
+                font-weight: bold;
+            }
+        }
     }
 
+    #contact-list {
+        display: flex;
+        gap: 0.75rem;
+    }
+    
     #projects {
-        background-color: red;
         display: flex;
         flex-direction: column;
-        gap: 2em;
-        margin: 0 auto;
-        padding: 1.5em 0 3em 0;
+        gap: 1em;
     }
 
+    @media screen and (min-width: 1200px) {
+        #projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            h1 {
+                grid-column: span 2;
+            }
+        }
+    }
 </style>

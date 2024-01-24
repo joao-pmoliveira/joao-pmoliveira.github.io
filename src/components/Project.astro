@@ -1,49 +1,53 @@
 ---
-import TechCapsule from "./TechCapsule.astro";
 import ProjectLink from "./ProjectLink.astro";
+
+interface Props {
+    title: string,
+    description: string,
+}
+
+const {title, description} = Astro.props;
 ---
 
+
 <div class="project">
-    <div class="project-content">
-        <h1>Title of the project</h1>
-        <p>very nice description of the project, and why, and what happenned</p>
-        <ul class="tech-list">
-            <TechCapsule></TechCapsule>
-            <TechCapsule></TechCapsule>
-            <TechCapsule></TechCapsule>
-            <TechCapsule></TechCapsule>
-        </ul>
-        <ul class="links">
-            <ProjectLink link="#" icon="fa-brands fa-github" name="GitHub"></ProjectLink>
-            <ProjectLink link="#" icon="fa-solid fa-newspaper" name="Artigo"></ProjectLink>
-        </ul>
-    </div>
-    <div class="project-thumbnail">
-        <img src="" alt="">
-    </div>
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <ul class="links">
+        <ProjectLink link="#" name="GitHub"></ProjectLink>
+    </ul>
+    <ul class="tech-list">
+        <slot/>
+    </ul>
 </div>
 
 
 <style>
     .project {
-        background-color: yellowgreen;
-        padding: 1em;
-        border-radius: 0.2em;
-    }
-    p {
-        margin-bottom: 1em;
-        max-width: 75ch;
-    }
-    ul {
-        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1.5rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--primary);
     }
     .tech-list {
         display: flex;
-        gap: 0.5em;
-        margin-bottom: 0.5em;
+        flex-direction: row;
+        gap: 0.5rem;
+        align-items: flex-start;
+        flex-wrap: wrap;
     }
+
     .links {
         display: flex;
-        gap: 0.5em;
+        gap: 0.5rem;
     }
+    
+    p {
+        max-width: 50ch;
+        line-height: 1.5em;
+        margin-bottom: 1rem;
+    }
+
 </style>
