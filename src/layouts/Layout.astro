@@ -11,7 +11,16 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16x16.png">
+        <link rel="manifest" href="public/site.webmanifest">
+        <link rel="mask-icon" href="public/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#000000">
+
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
         <script src="https://kit.fontawesome.com/db18a4139a.js" crossorigin="anonymous"></script>
@@ -22,37 +31,51 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    :root {
-        /* --background: #080d1c; */
-        --background: #27374D;
-        /* --primary: #8ea2e0; */
-        --primary: #DDE6ED;
-        /* --secondary: #7b2482; */
-        --secondary: #526D82;
-        /* --accent: #c93da3; */
-        --accent: #F4CE14;
-        /* --text: #dbe1f5; */
-        --text: #DDE6ED;
 
-        --serif-font: 'DM Serif Display', serif;
-        --sans-font: 'Raleway', sans-serif;
+    /* "Playfar Display" */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+    /* Moderustic */
+    @import url('https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&display=swap');
+
+    :root {
+        --primary-color: #edf2f4;
+        --secondary-color: #2b2d42;
+        --terciary-color: #8d99ae;
+        --accent-color: #ef233c;
+
+        --sfont: 'Playfar Display', Georgia, 'Times New Roman', Times, serif;
+        --ssfont: 'Moderustic', Verdana, Geneva, Tahoma, sans-serif;
     }
 
     * {
         box-sizing: border-box;
-        margin: 0;
         padding: 0;
+        margin: 0;
+        font-family: var(--ssfont);
     }
-
     html {
-        background-color: var(--background);
-        color: var(--text);
-        font-family: var(--sans-font);
+        background-color: var(--terciary-color);
+        color: var(--secondary-color);
     }
 
     ul {
         list-style: none;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .link {
+        border: 1px solid var(--accent-color);
+        border-radius: 0.2em;
+        padding: 0.2em 0.5em;
+        color: var(--accent-color);
+        text-decoration: none;
+        &:hover {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
     }
 </style>

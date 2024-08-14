@@ -1,23 +1,24 @@
 ---
 interface Props {
     link: string,
-    name: string
+    icon?: string,
+    name?: string
 }
 
-const {link, name} = Astro.props;
+const {link, name, icon} = Astro.props;
 ---
 
 
 <li>
     <a href={link}>
         {name}
-        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <i class={icon}></i>
     </a>
 </li>
 
 
 <style>
-    li {
+    /* li {
         border-radius: 1em;
     }
     a {
@@ -26,7 +27,7 @@ const {link, name} = Astro.props;
 
         &:hover {
             color: var(--accent);
-            font-weight: bold;
+            text-decoration:underline;
         }
-    }
+    } */
 </style>
