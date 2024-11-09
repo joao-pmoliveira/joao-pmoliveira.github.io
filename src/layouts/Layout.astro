@@ -12,69 +12,95 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 
-		<!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> -->
-        <!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> -->
-        <!-- <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> -->
-        <!-- <link rel="manifest" href="/site.webmanifest"> -->
-        <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"> -->
-        <!-- <meta name="msapplication-TileColor" content="#da532c"> -->
-        <!-- <meta name="theme-color" content="#000000"> -->
-
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-        <script src="https://kit.fontawesome.com/db18a4139a.js" crossorigin="anonymous"></script>
-        </head>
+		<script src="https://kit.fontawesome.com/db18a4139a.js" crossorigin="anonymous"></script>
+	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
 <style is:global>
+	/* Merriweather & Lato*/
+	@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 
-    /* "Playfar Display" */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+	@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
 
-    /* Moderustic */
-    @import url('https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&display=swap');
+	:root {
+		--text-col: #091c12;
+		--bg-col: #f4fbf5;
+		--primary-col: #805db6;
+		--secondary-col: #ac8fda;
+		--accent-col: #996ddd;
 
-    :root {
-        --primary-color: #edf2f4;
-        --secondary-color: #2b2d42;
-        --terciary-color: #8d99ae;
-        --accent-color: #ef233c;
+		--sfont: "Merriweather", Georgia, "Times New Roman", Times, serif;
+		--ssfont: "Lato", Verdana, Geneva, Tahoma, sans-serif;
 
-        --sfont: 'Playfar Display', Georgia, 'Times New Roman', Times, serif;
-        --ssfont: 'Moderustic', Verdana, Geneva, Tahoma, sans-serif;
-    }
+		font-size: 16px;
+		--s-txt-size: 0.9rem;
+		--m-txt-size: 1rem;
+		--l-txt-size: 1.2rem;
+		--xl-txt-size: 1.4rem;
+	}
 
-    * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-        font-family: var(--ssfont);
-    }
-    html {
-        background-color: var(--terciary-color);
-        color: var(--secondary-color);
-    }
+	* {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+		font-family: var(--ssfont);
+	}
 
-    ul {
-        list-style: none;
-    }
+	body {
+		background-color: #1a1a1d;
+		color: #ffff;
+	}
 
-    img {
-        width: 100%;
-    }
+	/* body {
+		font-size: var(--m-txt-size);
+		background-color: var(--bg-col);
+		color: var(--text-col);
+	}
 
-    .link {
-        border: 1px solid var(--accent-color);
+	ul {
+		list-style: none;
+	}
+
+	img {
+		width: 100%;
+	}
+
+	h1 {
+		font-size: var(--xl-txt-size);
+	}
+	h2 {
+		font-size: var(--l-txt-size);
+	}
+	h3 {
+		font-size: var(--m-txt-size);
+	}
+	p {
+		font-size: var(--s-txt-size);
+	} */
+
+	/* .link {
+        border: 1px solid var(--accent-col);
         border-radius: 0.2em;
         padding: 0.2em 0.5em;
-        color: var(--accent-color);
+        color: var(--accent-col);
         text-decoration: none;
         &:hover {
-            color: var(--secondary-color);
-            border-color: var(--secondary-color);
+            color: var(--secondary-col);
+            border-color: var(--secondary-col);
         }
-    }
+    } */
+
+	/* .container {
+		background-color: var(--bg-col);
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 1rem 2rem;
+		padding: 1rem;
+		border: 1px fuchsia solid;
+	} */
 </style>

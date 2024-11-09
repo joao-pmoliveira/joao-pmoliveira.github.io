@@ -1,318 +1,165 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Project from '../components/Project.astro';
-import TechCapsule from '../components/TechCapsule.astro';
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 ---
 
 <Layout title="João Oliveira">
-    <main>
-        <section id="hero" class="container">
-            <h1>João Oliveira</h1>
-            <h3>
-                Licenciado em <strong>Tecnologias da Informação</strong>
-                em ESTGA-UA
-            </h3>
-            <ul>
-                <li>
-                    <a href="https://github.com/joao-pmoliveira" class="link">GitHub</a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/jo%C3%A3o-oliveira-304134226/" class="link">LinkedIn</a>
-                </li>
-            </ul>
-        </section>
+	<header>
+		<div class="wrapper">
+			<h1 id="brand-name">JP</h1>
+			<nav>
+				<a href="https://github.com/joao-pmoliveira" class="btn-link" target="_blank">
+					<i class="fa-brands fa-github"></i>
+					GitHub
+				</a>
+				<a
+					href="www.linkedin.com/in/joão-oliveira-304134226"
+					class="btn-link"
+					target="_blank"
+				>
+					<i class="fa-brands fa-linkedin"></i>
+					LinkedIn
+				</a>
+				<a href="mailto:joaooliveiragd@gmail.com" class="btn-link" target="_blank">
+					<i class="fa-solid fa-envelope"></i>
+					Contact
+				</a>
+			</nav>
+		</div>
+	</header>
 
-        <section id="career" class="container">
-            <h1>Educação e Experiência</h1>
-            <ul>
-                <li>
-                    <h3>Licenciatura em Tecnologas da Informação</h3>
-                    <p>ESTGA-UA</p>
-                    <p><i>Out 2021 - Jun 2024</i></p>
-                </li>
-                <li>
-                    <h3>Bosch Termotecnologia Aveiro</h3>
-                    <p>Estágio Curricular</p>
-                    <p><i>Fev 2024 - Jun 2024</i></p>
-                </li>
-            </ul>
-        </section>
+	<section id="hero-section">
+		<div class="wrapper">
+			<h1><span class="flag-span">Hi</span>, I'm João Oliveira!</h1>
+			<p>Software Developer</p>
+		</div>
+	</section>
 
-        <section id="standout-projects" class="container">
-            <h1>Projetos em Destaque</h1>
-            <!--Projeto 1-->
-            <div>
-                <div class="img-container">
-                    <img src="/img/robot_framework.png" alt="">
-                </div>
-                <div class="project-info">
-                    <h3>Automação de Testes sobre Protocolo Modbus</h3>
-                    <p>
-                        Implementação de servidor Modbus usando bibliotecas Open-Source, integração
-                        com <i>frameworks</i> para criação de testes automáticos, e integração com
-                        <i>pipeline</i> CI/CD. <br> 
-                        <i>Realizado durante o estágio curricular na Bosch Termotecnologia.</i>
-                    </p>
-                    <!--<a href="http://github.com">GitHub Repo</a> -->
-                    <ul>
-                        <li>Python</li>
-                        <li>PyModbus</li>
-                        <li>RobotFramework</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!--Projeto 2-->
-            <div>
-                <div class="img-container">
-                    <img src="/img/sup_criacao_horarios.png" alt="">
-                </div>
-                <div class="project-info">
-                    <h3>Suporte à criação de horários</h3>
-                    <p>
-                        Plataforma para gestão das restrições de horários, preferências de equipamente
-                        escolar, e requisição de salas, por parte dos professores para o seguinte semestre.
-                    </p>
-                    <a href="https://github.com/joao-pmoliveira/ptdw-grupo-3">GitHub Repo</a>
-                    <ul>
-                        <li>Laravel</li>
-                        <li>Postgres</li>
-                        <li>PHP</li>
-                    </ul>
-                </div>
-            </div>
+	<main>
+		<div class="wrapper">
+			<h1>Projects</h1>
 
-            <!--Projeto 3-->
-            <div>
-                <div class="img-container">
-                    <img src="/img/estadios_nacionais.png" alt="">
-                </div>
-                <div class="project-info">
-                    <h3>Maps para Estádios Nacionais</h3>
-                    <p>
-                        Guia para viagens até estádios nacionais das principais divisões.
-                        Fornece trajeto optimal e pontos de interesse categorizados ao redor do estágio destino.
-                    </p>
-                    <a href="https://github.com/joao-pmoliveira/ptas-estadios">GitHub Repo</a>
-                    <ul>
-                        <li>Javascript</li>
-                        <li>PHP</li>
-                        <li>Postgres</li>
-                        <li>OpenLayers</li>
-                        <li>QGis</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+			<div id="project-grid">
+				<ProjectCard
+					imgSource="/img/robot_framework.png"
+					imgAltText="RobotFramework Logo"
+					title="Test Automation - Modbus Protocol"
+					keywords={["Python", "PyModbus", "RobotFramework"]}
+				/>
 
-        <section id="other-projects" class="container">
-            <h1>Projetos</h1>
-            <!--Filtros -->
+				<ProjectCard
+					imgSource="/img/sup_criacao_horarios.png"
+					imgAltText="Homepage University Scheduling Helper"
+					title="University Scheduling Helper"
+					keywords={["Laravel", "PHP", "PostgreSQL"]}
+					link="https://github.com/joao-pmoliveira/ptdw-grupo-3"
+				/>
 
-            <!--Outro Projeto-->
-            <div class="projects-containter">
-                <div class="project-card">
-                    <div class="img-container">
-                        <img src="/img/sistema_gestao_hotel.png" alt="">
-                    </div>
-                    <div class="project-card-info">
-                        <h3>Sistema de Gestão de Hoteis</h3>
-                        <p><a href="https://github.com/joao-pmoliveira/SistemaDeGestaoDeHotel">GitHub</a></p>
-                        <ul>
-                            <li>Java</li>
-                            <li>MySQL</li>
-                        </ul>
-                    </div>
-                </div>
+				<ProjectCard
+					imgSource="/img/estadios_nacionais.png"
+					imgAltText="Route From ESTGA to Estádio do Dragão"
+					title="National Stadiums Web Guide"
+					keywords={["JavaScript", "PostgreSQL", "QGIS", "OpenLayers"]}
+					link="https://github.com/joao-pmoliveira/ptas-estadios"
+				/>
 
-                <div class="project-card">
-                    <div class="img-container">
-                        <img src="/img/flashcards_android.png" alt="">
-                    </div>
-                    <div class="project-card-info">
-                        <h3>Flashcards Android App</h3>
-                        <p><a href="https://github.com/joao-pmoliveira/dadm-flashcards">GitHub</a></p>
-                        <ul>
-                            <li>Android Studio</li>
-                            <li>Kotlin</li>
-                            <li>Firebase</li>
-                        </ul>
-                    </div>
-                </div>
+				<ProjectCard
+					imgSource="/img/sistema_gestao_hotel.png"
+					imgAltText="Add Reservation Page - Hotel Management System"
+					title="Hotel Management System"
+					keywords={["Java", "MySQL"]}
+					link="https://github.com/joao-pmoliveira/SistemaDeGestaoDeHotel"
+				/>
+				<ProjectCard
+					imgSource="/img/flashcards_android.png"
+					imgAltText=""
+					title="Flashcards Android App"
+					keywords={["Android Studio", "Kotlin", "Firebase"]}
+					link="https://github.com/joao-pmoliveira/dadm-flashcards"
+				/>
 
-                <div class="project-card">
-                    <div class="img-container">
-                        <img src="/img/hexcell_automata.png" alt="">
-                    </div>
-                    <div class="project-card-info">
-                        <h3>Game of Life - Celular Automata</h3>
-                        <p><a href="https://github.com/joao-pmoliveira/hexcell-automata">GitHub</a></p>
-                        <ul>
-                            <li>C</li>
-                            <li>Raylib</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-    </main>
+				<ProjectCard
+					imgSource="/img/hexcell_automata.png"
+					imgAltText=""
+					title="Game of Life - Celular Automata"
+					keywords={["C", "Raylib"]}
+					link="https://github.com/joao-pmoliveira/hexcell-automata"
+				/>
+			</div>
+		</div>
+	</main>
 </Layout>
 
-
 <style is:global>
-    .container {
-        background-color: var(--primary-color);
-        /* border-bottom: 1px solid var(--accent-color);
-        border-top: 1px solid var(--accent-color); */
-        max-width: 1024px;
-        /* width: 70%; */
-        margin: 0 auto;
-        padding: 2rem 4rem;
-    }
+	.wrapper {
+		width: min(calc(0.71 * 1600px), 100% - 2rem);
+		margin-inline: auto;
+	}
 
-    #hero {
-        h1 {
-            font-family: var(--sfont);
-            font-size: 2.5rem;
-        }
-        h3 {
-            font-size: 1.3rem;
-            font-weight: 400;
-            font-family: var(--ssfont);
-            margin: 0.5em 0 2em 0;
-            strong {
-                font-family: var(--sfont);
-            }
-        }
-        ul {
-            display: flex;
-            gap: 0.5em;
-        }
-    }
+	header > div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+	}
 
-    #career {
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 1em;
-        }
+	#hero-section {
+		padding: 4rem 0;
+		h1 {
+			font-size: 4rem;
+			font-family: "Quicksand", sans-serif;
+		}
+		p {
+			font-family: "Quicksand", sans-serif;
+			font-size: 1.5rem;
+		}
+	}
 
-        ul li:nth-child(1) {
-            margin-bottom: 1rem;
-        }
-        ul li {
-            margin-left: 1rem;
-        }
-        li p {
-            margin-left: 1rem;
-        }
+	#project-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: auto;
+		row-gap: 2rem;
+		column-gap: 1.5rem;
+	}
 
-    }
+	main {
+		margin-bottom: 10rem;
+	}
 
-    #standout-projects {
-        h1 {
-            font-size: 1.7rem;
-            margin-bottom: 2.5rem;
-        }
+	main h1 {
+		margin: 1.5rem 0;
+		text-transform: uppercase;
+		font-size: 1.5rem;
+	}
 
-        & > div {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
+	nav {
+		padding-top: 1rem;
+		display: flex;
+		gap: 1rem;
+	}
 
-            .project-info {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
+	#brand-name {
+		font-family: "Italianno", cursive;
+	}
 
-                padding: 0.5rem 0;
-                p {
-                    margin-bottom: 0.5rem;
-                    flex: auto;
-                }
+	.btn-link {
+		background-color: #6a1e55;
+		padding: 0.5em 1em;
+		width: fit-content;
+		color: white;
 
-                ul {
-                    display: flex;
-                    gap: 0.5rem;
-                }
-                li {
-                    border: 1px solid var(--terciary-color);
-                    padding: 0.2rem 0.5rem;
-                }
-            }
+		&:hover {
+			background-color: #a64d79;
+			cursor: pointer;
+		}
 
-            &:nth-child(odd) {
-                grid-template-columns: 2fr 1fr;
-            }
-            &:nth-child(odd) .project-info {
-                grid-column-start: 1;
-                grid-column-end: 2;
-                grid-row-start: 1;
-                grid-row-end: 2;
-            }
-            &:nth-child(odd) .img-container {
-                grid-column-start: 2;
-                grid-column-end: 3;
-            }
-
-            li {
-                font-size: 0.8rem;
-            }
-        }
-    } 
-
-    #other-projects {
-        padding-bottom: 5rem;
-        h1 {
-            font-size: 1.7rem;
-            margin-bottom: 2rem;
-        }
-
-        .projects-containter {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem; 
-        }
-        .img-container img {
-        }
-        .project-card {
-            border: 1px solid var(--terciary-color);
-            border-radius: 0.2rem
-        }
-        .project-card-info {
-            padding: 0.2rem 0.5rem 0.5rem 0.5rem;
-            h3 {
-                margin-bottom: 0.8rem;
-            }
-            p {
-                margin-bottom: 0.5rem;
-            }
-            ul {
-                display: flex;
-                gap: 0.5rem;
-                font-size: 0.8rem;
-            }
-            li {
-                border: 1px solid var(--terciary-color);
-                padding: 0.2rem 0.5rem;
-            }
-        }
-    }
-
-
-    @media screen and (max-width: 800px) {
-        .container {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-    }
-    @media screen and (max-width: 620px) {
-        #other-projects {
-            .projects-containter {
-                grid-template-columns: repeat(2, 1fr);
-                background-color: red;
-            }
-        }
-    }
+		&,
+		&:visited,
+		&:hover,
+		&:active {
+			color: white;
+			text-decoration: none;
+		}
+	}
 </style>
