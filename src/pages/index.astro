@@ -1,165 +1,81 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import Project from "@/components/Project.astro";
+import { projects } from "@/data";
+import Layout from "@/layouts/Layout.astro";
+import { type project } from "@/lib/types";
+import { Linkedin, Github } from "@lucide/astro";
+
 ---
 
 <Layout title="João Oliveira">
-	<header>
-		<div class="wrapper">
-			<h1 id="brand-name">JP</h1>
-			<nav>
-				<a href="https://github.com/joao-pmoliveira" class="btn-link" target="_blank">
-					<i class="fa-brands fa-github"></i>
-					GitHub
-				</a>
-				<a
-					href="www.linkedin.com/in/joão-oliveira-304134226"
-					class="btn-link"
-					target="_blank"
-				>
-					<i class="fa-brands fa-linkedin"></i>
-					LinkedIn
-				</a>
-				<a href="mailto:joaooliveiragd@gmail.com" class="btn-link" target="_blank">
-					<i class="fa-solid fa-envelope"></i>
-					Contact
-				</a>
-			</nav>
-		</div>
-	</header>
+    <main class="py-14">
+        <section id="hero" class="">
+            <div class="mx-auto max-w-7xl
+                        px-6 pb-14 grid grid-cols-2 items-center gap-x-8 gap-y-14">
+                <div>
+                    <h1 class="font-accent text-6xl font-bold tracking-wide text-balance text-gray-900">
+                        João Oliveira
+                    </h1>
+                    <p class="mt-4 text-xl font-medium text-pretty text-gray-500">
+                        Software Developer exploring backend, full-stack, and wherever code takes me.
+                    </p>
+                    <ul class="mt-10 text-md font-medium text-pretty flex gap-4">
+                        <li class="bg-blue-500 rounded-sm shadow-lg/20 hover:bg-amber-500">
+                            <a href="https://www.linkedin.com/in/joao-oliveira-304134226/" target="_blank"
+                               class="flex gap-3 items-center px-3 py-1 text-white tracking-wide">
+                                <Linkedin fill="white" stroke-width={1} size={16} color="white" />
+                                LinkedIn
+                            </a>
+                        </li>
+                        <li class="bg-zinc-700 rounded-sm shadow-lg/20 hover:bg-amber-500">
+                            <a href="https://github.com/joao-pmoliveira" target="_blank"
+                               class="flex gap-3 items-center px-3 py-1 text-white tracking-wide">
+                                <Github fill="white" stroke-width={0} size={16} color="white" />
+                                GitHub
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+        </section>
 
-	<section id="hero-section">
-		<div class="wrapper">
-			<h1><span class="flag-span">Hi</span>, I'm João Oliveira!</h1>
-			<p>Software Developer</p>
-		</div>
-	</section>
+        <section id="projects">
+            <div class="mx-auto max-w-7xl px-6 py-12">
+                <h1 class="text-4xl mb-3 font-semibold text-gray-900">
+                    Featured Projects
+                </h1>
+                <div>
+                    { projects.map(p => <Project project={p} />) }
+                </div>
+            </div>
+        </section>
 
-	<main>
-		<div class="wrapper">
-			<h1>Projects</h1>
+        <section id="experience">
+            <div class="mx-auto max-w-7xl px-6 py-12">
+                <h1 class="text-4xl mb-5 font-semibold text-gray-900">
+                    Work & Education
+                </h1>
 
-			<div id="project-grid">
-				<ProjectCard
-					imgSource="/img/robot_framework.png"
-					imgAltText="RobotFramework Logo"
-					title="Test Automation - Modbus Protocol"
-					keywords={["Python", "PyModbus", "RobotFramework"]}
-				/>
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold mb-1">Intern - Firmware Team</h2>
+                    <p class="text-lg font-light mb-2">Bosch, Aveiro, Portugal (02/2024 - 06/2024)</p>
+                    <ul class="space-y-1 max-w-[75ch] list-disc ml-4 *:text-pretty *:leading-7">
+                        <li>Built an automatic testing system for Modbus protocol using PyModbus and Robot Framework, enhancing testing efficiency and accuracy.</li>
+                        <li>Enabled dynamic simulation of Modbus units without interrupting live connections.</li>
+                        <li>Contributed to Jenkins-based CI/CD and improved test automation, leading to faster deployment cycles and reduced manual errors.</li>
+                    </ul>
+                </div>
 
-				<ProjectCard
-					imgSource="/img/sup_criacao_horarios.png"
-					imgAltText="Homepage University Scheduling Helper"
-					title="University Scheduling Helper"
-					keywords={["Laravel", "PHP", "PostgreSQL"]}
-					link="https://github.com/joao-pmoliveira/ptdw-grupo-3"
-				/>
-
-				<ProjectCard
-					imgSource="/img/estadios_nacionais.png"
-					imgAltText="Route From ESTGA to Estádio do Dragão"
-					title="National Stadiums Web Guide"
-					keywords={["JavaScript", "PostgreSQL", "QGIS", "OpenLayers"]}
-					link="https://github.com/joao-pmoliveira/ptas-estadios"
-				/>
-
-				<ProjectCard
-					imgSource="/img/sistema_gestao_hotel.png"
-					imgAltText="Add Reservation Page - Hotel Management System"
-					title="Hotel Management System"
-					keywords={["Java", "MySQL"]}
-					link="https://github.com/joao-pmoliveira/SistemaDeGestaoDeHotel"
-				/>
-				<ProjectCard
-					imgSource="/img/flashcards_android.png"
-					imgAltText=""
-					title="Flashcards Android App"
-					keywords={["Android Studio", "Kotlin", "Firebase"]}
-					link="https://github.com/joao-pmoliveira/dadm-flashcards"
-				/>
-
-				<ProjectCard
-					imgSource="/img/hexcell_automata.png"
-					imgAltText=""
-					title="Game of Life - Celular Automata"
-					keywords={["C", "Raylib"]}
-					link="https://github.com/joao-pmoliveira/hexcell-automata"
-				/>
-			</div>
-		</div>
-	</main>
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold mb-1">Bachelor's Degree in Information Technologies</h2>
+                    <p class="text-ls font-light mb-2">ESTGA - Universidade de Aveiro, Portugal (09/2021 - 07/2024)</p>
+                    <ul class="max-w-[75ch] list-disc ml-4 *:text-pretty *:leading-7">
+                        <li><span class="font-semibold">Relevant Coursework:</span> Compilers, Artificial Intelligence, Database Systems, Web Development, Software Engineering,
+                            Test-Driven Development, Unit Testing, Data Structures, Threads, UI/UX, Project Management.</li>
+                        <li>Completed a 4-month internship at Bosch Portugal as part of the curriculum. Graded 19/20.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
 </Layout>
-
-<style is:global>
-	.wrapper {
-		width: min(calc(0.71 * 1600px), 100% - 2rem);
-		margin-inline: auto;
-	}
-
-	header > div {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	#hero-section {
-		padding: 4rem 0;
-		h1 {
-			font-size: 4rem;
-			font-family: "Quicksand", sans-serif;
-		}
-		p {
-			font-family: "Quicksand", sans-serif;
-			font-size: 1.5rem;
-		}
-	}
-
-	#project-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: auto;
-		row-gap: 2rem;
-		column-gap: 1.5rem;
-	}
-
-	main {
-		margin-bottom: 10rem;
-	}
-
-	main h1 {
-		margin: 1.5rem 0;
-		text-transform: uppercase;
-		font-size: 1.5rem;
-	}
-
-	nav {
-		padding-top: 1rem;
-		display: flex;
-		gap: 1rem;
-	}
-
-	#brand-name {
-		font-family: "Italianno", cursive;
-	}
-
-	.btn-link {
-		background-color: #6a1e55;
-		padding: 0.5em 1em;
-		width: fit-content;
-		color: white;
-
-		&:hover {
-			background-color: #a64d79;
-			cursor: pointer;
-		}
-
-		&,
-		&:visited,
-		&:hover,
-		&:active {
-			color: white;
-			text-decoration: none;
-		}
-	}
-</style>

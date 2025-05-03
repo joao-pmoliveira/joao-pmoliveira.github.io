@@ -1,4 +1,7 @@
 ---
+import AppHeader from "@/components/AppHeader.astro";
+import "@/styles/global.css";
+
 interface Props {
 	title: string;
 }
@@ -17,6 +20,7 @@ const { title } = Astro.props;
 		<script src="https://kit.fontawesome.com/db18a4139a.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
+        <AppHeader/>
 		<slot />
 	</body>
 </html>
@@ -27,6 +31,7 @@ const { title } = Astro.props;
 
 	@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
 
+    /*
 	:root {
 		--text-col: #091c12;
 		--bg-col: #f4fbf5;
@@ -42,65 +47,5 @@ const { title } = Astro.props;
 		--m-txt-size: 1rem;
 		--l-txt-size: 1.2rem;
 		--xl-txt-size: 1.4rem;
-	}
-
-	* {
-		box-sizing: border-box;
-		padding: 0;
-		margin: 0;
-		font-family: var(--ssfont);
-	}
-
-	body {
-		background-color: #1a1a1d;
-		color: #ffff;
-	}
-
-	/* body {
-		font-size: var(--m-txt-size);
-		background-color: var(--bg-col);
-		color: var(--text-col);
-	}
-
-	ul {
-		list-style: none;
-	}
-
-	img {
-		width: 100%;
-	}
-
-	h1 {
-		font-size: var(--xl-txt-size);
-	}
-	h2 {
-		font-size: var(--l-txt-size);
-	}
-	h3 {
-		font-size: var(--m-txt-size);
-	}
-	p {
-		font-size: var(--s-txt-size);
-	} */
-
-	/* .link {
-        border: 1px solid var(--accent-col);
-        border-radius: 0.2em;
-        padding: 0.2em 0.5em;
-        color: var(--accent-col);
-        text-decoration: none;
-        &:hover {
-            color: var(--secondary-col);
-            border-color: var(--secondary-col);
-        }
-    } */
-
-	/* .container {
-		background-color: var(--bg-col);
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 1rem 2rem;
-		padding: 1rem;
-		border: 1px fuchsia solid;
-	} */
+    }*/
 </style>

@@ -1,0 +1,45 @@
+---
+import type { project } from '@/lib/types';
+import { ExternalLink } from '@lucide/astro';
+
+interface Props {
+    project: project
+}
+
+const { project } = Astro.props;
+
+---
+
+<div class="grid grid-cols-[1fr_3fr] gap-8 py-6 mb-12">
+    <div class="bg-slate-500 flex items-center">
+        <img class="w-full px-1 rounded-sm shadow-lg/30" src={ project.imgSource } alt={ project.imgAltText }>
+    </div>
+    <div>
+        <h2 class="text-3xl font-medium text-gray-900 mb-4">
+            { project.title }
+        </h2>
+        <p class="max-w-[75ch] text-lg font-light text-gray-900 mb-3 leading-8">
+            { project.description }
+        </p>
+        <ul class="flex flex-wrap text-sm mb-3 text-gray-900"> 
+            {
+            (project.tags.map(tag => (
+                <li class="truncate px-2 border-l-2 border-gray-300 first:border-0 first:pl-0">
+                    { tag }
+                </li>)))
+            }
+        </ul >
+        { project.links &&
+        <ul class="flex gap-4 text-md">
+            { project.links.map(link => (
+                <li>
+                    <a class="underline underline-offset-3 hover:decoration-2 text-sm flex gap-1 items-center" href={link.url} target="_blank">
+                        { link.name }
+                        <ExternalLink size={12} stroke-width={2} color='black'/> 
+                    </a>
+                </li>))
+            }
+        </ul>
+        }
+    </div>
+</div>
